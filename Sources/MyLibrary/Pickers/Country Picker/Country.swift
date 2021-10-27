@@ -12,7 +12,7 @@ public struct Country: Equatable, Hashable, Identifiable {
     public var id = UUID()
     let isoCode: String
     
-    static var currentLocaleCountry: Country {
+    public static var currentLocaleCountry: Country {
         let locale = Locale.current
         return Country(isoCode: locale.regionCode ?? "CA")
     }
@@ -28,7 +28,7 @@ public struct Country: Equatable, Hashable, Identifiable {
         Country.countryDialingCodes[isoCode] ?? isoCode
     }
     
-    static var allCountries: [Country] {
+    public static var allCountries: [Country] {
         let countries = NSLocale.isoCountryCodes.map { code in
             Country(isoCode: code)
         }
@@ -58,10 +58,10 @@ public struct Country: Equatable, Hashable, Identifiable {
         return indexArray
     }
     
-    static let canada = Country(isoCode: "CA")
-    static let usa = Country(isoCode: "US")
+    public static let canada = Country(isoCode: "CA")
+    public static let usa = Country(isoCode: "US")
     
-    var provinceStates: [ProvinceState]? {
+    public var provinceStates: [ProvinceState]? {
         if self == Country.canada {
             return ProvinceState.Canada.allProvinces
         } else if self == Country.usa {
