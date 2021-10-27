@@ -12,19 +12,15 @@ public struct CountryPicker: View {
     @Binding var selectedCountry: Country?
     @State private var pickerIsShowing: Bool = false
     
-    public init(selectedCountry: Binding<Country?>) {
-        self._selectedCountry = selectedCountry
-    }
-    
     public var body: some View {
         
         HStack {
             Text("Country")
             Spacer()
             HStack {
-            Text(selectedCountry != nil ? selectedCountry!.countryName : "Select")
-            Image(systemName: "chevron.right")
-                .font(Font.footnote.bold())
+                Text(selectedCountry != nil ? selectedCountry!.countryName : "Select")
+                Image(systemName: "chevron.right")
+                    .font(Font.footnote.bold())
             }
             .foregroundColor(Color(.secondaryLabel))
         }
@@ -36,6 +32,8 @@ public struct CountryPicker: View {
             CountryPickerModal(selectedCountry: $selectedCountry)
         }
     }
+    
+    
 }
 
 public struct CountryDialCodePicker: View {
@@ -43,7 +41,7 @@ public struct CountryDialCodePicker: View {
     @Binding var selectedCountry: Country?
     @State private var pickerIsShowing: Bool = false
     
-   public var body: some View {
+    public var body: some View {
     
             HStack {
                 HStack {
@@ -128,7 +126,6 @@ public struct CountryPickerModal: View {
                             Text("Cancel")
                         })
                         .onAppear() {
-                            print(selectedCountry)
                             if selectedCountry != nil {
                                 scrollProxy.scrollTo(selectedCountry, anchor: .center)
                             }
