@@ -173,3 +173,10 @@ struct CountryPickerModal: View {
         return sectionToScroll?.id
     }
 }
+
+struct CountryPickerLibraryContent: LibraryContentProvider {
+    @LibraryContentBuilder
+    var views: [LibraryItem] {
+        LibraryItem(CountryPicker(selectedCountry: .constant(Country.canada)),title: "CountryPicker", category: .control)
+    }
+}
