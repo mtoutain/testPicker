@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Country: Equatable, Hashable, Identifiable {
+public struct Country: Equatable, Hashable, Identifiable {
     
     var id = UUID()
     let isoCode: String

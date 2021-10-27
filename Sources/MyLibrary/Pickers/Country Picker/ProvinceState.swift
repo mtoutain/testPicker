@@ -12,7 +12,7 @@ protocol Searchable: Identifiable {
     var searchTarget: String { get }
 }
 
-struct ProvinceState: Equatable, Hashable, Searchable {
+public struct ProvinceState: Equatable, Hashable, Searchable {
     var title: String {
         return name
     }

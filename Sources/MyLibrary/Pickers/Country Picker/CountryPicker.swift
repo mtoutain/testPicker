@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountryPicker: View {
+public struct CountryPicker: View {
     
     @Binding var selectedCountry: Country?
     @State private var pickerIsShowing: Bool = false
@@ -34,7 +34,7 @@ struct CountryPicker: View {
     }
 }
 
-struct CountryDialCodePicker: View {
+public struct CountryDialCodePicker: View {
     
     @Binding var selectedCountry: Country?
     @State private var pickerIsShowing: Bool = false
@@ -72,7 +72,7 @@ struct CountryPicker_Previews: PreviewProvider {
     }
 }
 
-struct CountryPickerModal: View {
+public struct CountryPickerModal: View {
     
     @Environment(\.presentationMode) private var presentationMode
     @Binding var selectedCountry: Country?
