@@ -9,7 +9,7 @@ import Foundation
 
 public struct Country: Equatable, Hashable, Identifiable {
     
-    var id = UUID()
+    public var id = UUID()
     let isoCode: String
     
     static var currentLocaleCountry: Country {

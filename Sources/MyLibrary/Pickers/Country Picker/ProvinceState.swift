@@ -21,7 +21,7 @@ public struct ProvinceState: Equatable, Hashable, Searchable {
         return name
     }
     
-    var id: String {
+    public var id: String {
         return name
     }
     
