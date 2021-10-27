@@ -10,11 +10,10 @@ import SwiftUI
 public struct CountryPicker: View {
     
     @Binding var selectedCountry: Country?
-    @State private var pickerIsShowing: Bool
+    @State private var pickerIsShowing: Bool = false
     
-    public init(selectedCountry: Binding<Country?>, pickerIsShowing: Bool) {
+    public init(selectedCountry: Binding<Country?>) {
         self._selectedCountry = selectedCountry
-        _pickerIsShowing = .init(initialValue: pickerIsShowing)
     }
     
     public var body: some View {
@@ -129,6 +128,7 @@ public struct CountryPickerModal: View {
                             Text("Cancel")
                         })
                         .onAppear() {
+                            print(selectedCountry)
                             if selectedCountry != nil {
                                 scrollProxy.scrollTo(selectedCountry, anchor: .center)
                             }
@@ -182,6 +182,6 @@ public struct CountryPickerModal: View {
 struct CountryPickerLibraryContent: LibraryContentProvider {
     @LibraryContentBuilder
     var views: [LibraryItem] {
-        LibraryItem(CountryPicker(selectedCountry: .constant(Country.canada), pickerIsShowing: false),title: "CountryPicker", category: .control)
+        LibraryItem(CountryPicker(selectedCountry: .constant(Country.canada)),title: "CountryPicker", category: .control)
     }
 }
