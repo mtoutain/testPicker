@@ -45,6 +45,10 @@ public struct CountryDialCodePicker: View {
     @Binding var selectedCountry: Country?
     @State private var pickerIsShowing: Bool = false
     
+    public init(selectedCountry: Binding<Country?>) {
+        _selectedCountry = selectedCountry
+    }
+    
     public var body: some View {
     
             HStack {
@@ -183,6 +187,9 @@ public struct CountryPickerModal: View {
 struct CountryPickerLibraryContent: LibraryContentProvider {
     @LibraryContentBuilder
     var views: [LibraryItem] {
-        LibraryItem(CountryPicker(selectedCountry: .constant(Country.canada)),title: "CountryPicker", category: .control)
+        
+        LibraryItem(CountryPicker(selectedCountry: .constant(Country.canada)),title: "Country Picker", category: .control)
+        
+        LibraryItem(CountryDialCodePicker(selectedCountry: .constant(Country.canada)),title: "Country DialCode Picker", category: .control)
     }
 }
