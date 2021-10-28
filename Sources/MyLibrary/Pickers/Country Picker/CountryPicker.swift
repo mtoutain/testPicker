@@ -103,7 +103,7 @@ public struct CountryPickerModal: View {
                                                 Image(systemName: "checkmark")
                                                     .font(Font.body.bold())
                                                     //                                                    .foregroundColor(Color("AccentColor"))
-                                                    .opacity(selectedCountry == country ? 1 : 0)
+                                                    .opacity(selectedCountry?.countryName == country.countryName ? 1 : 0)
                                                 
                                                 if displayForDialCode {
                                                     Text("+\(country.dialingCode)")
@@ -111,10 +111,10 @@ public struct CountryPickerModal: View {
                                                 Text(displayForDialCode ? "(\(country.countryName))" : "\(country.countryName)")
                                                 
                                             }
-                                            .foregroundColor(selectedCountry == country ? Color("AccentColor") : Color(.label))
+                                            .foregroundColor(selectedCountry?.countryName == country.countryName ? Color("AccentColor") : Color(.label))
                                             .contentShape(Rectangle())
                                         }
-                                        .id(country)
+                                        .id(country.countryName)
                                         
                                     }
                                 }
@@ -127,7 +127,7 @@ public struct CountryPickerModal: View {
                         })
                         .onAppear() {
                             if selectedCountry != nil {
-                                scrollProxy.scrollTo(selectedCountry, anchor: .center)
+                                scrollProxy.scrollTo(selectedCountry?.countryName, anchor: .center)
                             }
                         }
                         
