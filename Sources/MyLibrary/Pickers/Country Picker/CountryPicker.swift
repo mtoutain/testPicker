@@ -12,6 +12,10 @@ public struct CountryPicker: View {
     @Binding var selectedCountry: Country?
     @State private var pickerIsShowing: Bool = false
     
+    public init(selectedCountry: Binding<Country?>) {
+        _selectedCountry = selectedCountry
+    }
+    
     public var body: some View {
         
         HStack {
